@@ -10,7 +10,13 @@ for (var i = 0; i < videos.length; i++) {
     var button = document.createElement("a");
     button.className = "yt-uix-button yt-uix-button-default yt-uix-button-size-default " +
                        "abandon-playlist-button";
-    button.title = "Watch this video outside the playlist"
+    button.title = "Watch this video outside the playlist";
+
+    // We can also get YouTube to show a nice tooltip when hovering over our
+    // button, by using the data-tooltip-text attribute and a couple of extra
+    // classes.
+    button.dataset.tooltipText = "Watch Outside Playlist";
+    button.className += " yt-uix-tooltip";
 
     // The data-video-id attribute on the video element gives the YouTube ID
     // of the video. By appending that to the normal YouTube video URL, we
@@ -22,7 +28,7 @@ for (var i = 0; i < videos.length; i++) {
 
     // Create an image containing the icon to put into the <a> tag.
     var image = document.createElement("img");
-    image.src = safari.extension.baseURI + "buttonIcon.png"
+    image.src = safari.extension.baseURI + "buttonIcon.png";
 
     // Insert the image into the button.
     button.appendChild(image);
