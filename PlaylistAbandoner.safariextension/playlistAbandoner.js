@@ -33,8 +33,10 @@ for (var i = 0; i < videos.length; i++) {
     tableCell.class = "abandon-playlist-wrapper";
     tableCell.appendChild(button);
 
-    // Finally, add the table cell to the video element. Luckily, the elements
-    // we have been working with are the <tr> tags, so we can just add the <td>
-    // directly to it, without having to traverse the DOM at all.
-    video.appendChild(tableCell);
+    // Finally, add the table cell to the video element. The `video` element
+    // is the <tr> tag, which means we can add our <td> element directly to it.
+    // In order to add our button to the left of the duration, we will use
+    // lastChild to get the duration <td> element, then insert our new <td>
+    // *before* that element.
+    video.insertBefore(tableCell, video.lastChild);
 }
