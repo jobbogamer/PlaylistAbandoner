@@ -37,6 +37,8 @@
 	</dict>
 	<key>Description</key>
 	<string>Adds a button to YouTube playlists to go to the video outside the playlist.</string>
+	<key>DeveloperIdentifier</key>
+	<string>0000000000</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
