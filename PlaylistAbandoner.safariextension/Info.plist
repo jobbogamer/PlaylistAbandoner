@@ -29,6 +29,11 @@
 		<array>
 			<string>playlistAbandoner.css</string>
 		</array>
+		<key>Whitelist</key>
+		<array>
+			<string>http://*.youtube.com/playlist</string>
+			<string>https://*.youtube.com/playlist</string>
+		</array>
 	</dict>
 	<key>Description</key>
 	<string>Adds a button to YouTube playlists to go to the video outside the playlist.</string>
