@@ -11,6 +11,7 @@ for (var i = 0; i < videos.length; i++) {
     button.className = "yt-uix-button yt-uix-button-default yt-uix-button-size-default " +
                        "abandon-playlist-button";
     button.title = "Watch this video outside the playlist";
+    button.target = "_blank";
 
     // We can also get YouTube to show a nice tooltip when hovering over our
     // button, by using the data-tooltip-text attribute and a couple of extra
