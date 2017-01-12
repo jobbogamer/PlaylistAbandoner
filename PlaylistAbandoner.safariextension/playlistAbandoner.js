@@ -30,6 +30,8 @@ for (var i = 0; i < videos.length; i++) {
     // Create an image containing the icon to put into the <a> tag.
     var image = document.createElement("img");
     image.src = safari.extension.baseURI + "buttonIcon.png";
+    image.width = "16";
+    image.height = "16";
 
     // Insert the image into the button.
     button.appendChild(image);
