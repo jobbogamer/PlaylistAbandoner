@@ -9,7 +9,7 @@ Playlist Abandoner is a Safari/Chrome extension which adds a button to each vide
 on a playlist page. Clicking that button will open the video on the normal watch
 page, _outside_ the context of the playlist.
 
-THe Chrome version of the extension is available [on the Chrome webstore][chrome].
+The Chrome version of the extension is available [on the Chrome webstore][chrome].
 
 ## Installation (Safari)
 
