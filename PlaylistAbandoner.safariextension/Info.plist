@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Josh Asch</string>
 	<key>Builder Version</key>
-	<string>12602.2.14.0.7</string>
+	<string>12603.2.4</string>
 	<key>CFBundleDisplayName</key>
 	<string>Playlist Abandoner</string>
 	<key>CFBundleIdentifier</key>
@@ -38,7 +38,7 @@
 	<key>Description</key>
 	<string>Adds a button to YouTube playlists to go to the video outside the playlist.</string>
 	<key>DeveloperIdentifier</key>
-	<string>0000000000</string>
+	<string>3LL9PW2U2F</string>
 	<key>ExtensionInfoDictionaryVersion</key>
 	<string>1.0</string>
 	<key>Permissions</key>
