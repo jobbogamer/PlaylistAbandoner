@@ -1,51 +1,45 @@
 
 // Find all the video links in the playlist.
-var videos = document.getElementsByClassName("pl-video");
+var videos = document.getElementsByTagName("ytd-playlist-video-renderer");
 for (var i = 0; i < videos.length; i++) {
     var video = videos[i];
+    var videoLink;
     
-    // Create the button for this video. YouTube uses <a> tags with a bunch of
-    // classes for those nice grey buttons, so let's do that. Also add a custom
-    // class as well, so we can target them with our injected CSS.
+    var links = video.getElementsByTagName("a");
+    for (var j = 0; j < links.length; j++) {
+        if (links[j].className.indexOf("ytd-playlist-video-renderer") !== 0) {
+            videoLink = links[j];
+            break;
+        }
+    }
+
+    if (!videoLink) {
+        continue;
+    }
+
+    // Create a button which will open a link in a new tab.
     var button = document.createElement("a");
-    button.className = "yt-uix-button yt-uix-button-default yt-uix-button-size-default " +
-                       "abandon-playlist-button";
+    button.className = "abandon-playlist-button";
     button.title = "Watch this video outside the playlist";
     button.target = "_blank";
 
-    // We can also get YouTube to show a nice tooltip when hovering over our
-    // button, by using the data-tooltip-text attribute and a couple of extra
-    // classes.
-    button.dataset.tooltipText = "Watch Outside Playlist";
-    button.className += " yt-uix-tooltip";
-
-    // The data-video-id attribute on the video element gives the YouTube ID
-    // of the video. By appending that to the normal YouTube video URL, we
-    // can form a link to the video's watch page. Since we are being injected
-    // into the page, we can use a relative URL so that we're not assuming
-    // that we're on vanilla youtube.com.
-    var url = "/watch?v=" + video.dataset.videoId;
-    button.href = url;
+    // Take the URL from the video link and remove everything after the video
+    // ID. Since video links are always .../watch?v=VIDEO_ID&... we can just
+    // strip everything from the first & character.
+    var originalUrl = videoLink.href;
+    var endOfId = originalUrl.indexOf("&");
+    var newUrl = originalUrl.substr(0, endOfId);
+    button.href = newUrl;
 
     // Create an image containing the icon to put into the <a> tag.
-    var image = document.createElement("img");
-    image.src = chrome.extension.getURL("buttonIcon.png");
-    image.width = "16";
-    image.height = "16";
+    var imageUrl = chrome.extension.getURL("shareIcon.svg");
+    button.style["-webkit-mask-image"] = "url(" + imageUrl + ")";
 
-    // Insert the image into the button.
-    button.appendChild(image);
+    // Create a div to put the button into.
+    var wrapperDiv = document.createElement("div");
+    wrapperDiv.className = "abandon-playlist-wrapper";
+    wrapperDiv.appendChild(button);
 
-    // Create a table cell to put the button into, since the playlist is a
-    // giant table.
-    var tableCell = document.createElement("td");
-    tableCell.class = "abandon-playlist-wrapper";
-    tableCell.appendChild(button);
-
-    // Finally, add the table cell to the video element. The `video` element
-    // is the <tr> tag, which means we can add our <td> element directly to it.
-    // In order to add our button to the left of the duration, we will use
-    // lastChild to get the duration <td> element, then insert our new <td>
-    // *before* that element.
-    video.insertBefore(tableCell, video.lastChild);
+    // Finally, add the wrapper to the video element, after the menu button.
+    video.insertBefore(wrapperDiv, video.lastChild);
 }

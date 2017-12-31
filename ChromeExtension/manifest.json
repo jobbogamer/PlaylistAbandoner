@@ -3,7 +3,7 @@
 
     "name": "Playlist Abandoner",
     "description": "Adds a button to YouTube playlists to go to the video outside the playlist.",
-    "version": "1.0",
+    "version": "1.1",
     "author": "Josh Asch",
     "homepage_url": "https://github.com/jobbogamer/PlaylistAbandoner",
 
@@ -28,6 +28,7 @@
     ],
 
     "web_accessible_resources": [
-        "buttonIcon.png"
+        "buttonIcon.png",
+        "shareIcon.svg"
     ]
 }

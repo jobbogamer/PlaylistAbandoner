@@ -1,17 +1,12 @@
 
-.abandon-playlist-button img {
-    width: 16px;
-    height: 16px;
-    opacity: 0.7;
-    filter: alpha(opacity=70);
+.abandon-playlist-button {
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-color: #808080;
+    margin-left: 8px;
 }
 
-.abandon-playlist-button:hover img {
-    opactiy: 0.8;
-    filter: alpha(opactiy=80);
-}
-
-.abandon-playlist-button:active img {
-    opactiy: 1.0;
-    filter: alpha(opactiy=100);
+.abandon-playlist-button:hover {
+    background-color: #cccccc;
 }
